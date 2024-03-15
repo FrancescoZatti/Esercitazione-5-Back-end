@@ -13,7 +13,7 @@ class AttivitaController extends Controller
      */
     public function index()
     {
-        //
+        return Attivita::get();
     }
 
     /**

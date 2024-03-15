@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Progetto;
-use App\Http\Requests\StoreProgettoRequest;
-use App\Http\Requests\UpdateProgettoRequest;
+use Illuminate\Http\Request;
+use App\Models\User;
 
-class ProgettoController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('homepage', ['progetti' => Progetto::get()]);
-        //return Progetto::get();
+        return User::get();
     }
 
     /**
@@ -28,7 +26,7 @@ class ProgettoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProgettoRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -36,7 +34,7 @@ class ProgettoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Progetto $progetto)
+    public function show(string $id)
     {
         //
     }
@@ -44,7 +42,7 @@ class ProgettoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Progetto $progetto)
+    public function edit(string $id)
     {
         //
     }
@@ -52,7 +50,7 @@ class ProgettoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProgettoRequest $request, Progetto $progetto)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -60,7 +58,7 @@ class ProgettoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Progetto $progetto)
+    public function destroy(string $id)
     {
         //
     }
