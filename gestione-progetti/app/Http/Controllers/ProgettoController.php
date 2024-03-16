@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Progetto;
 use App\Http\Requests\StoreProgettoRequest;
 use App\Http\Requests\UpdateProgettoRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ProgettoController extends Controller
 {
@@ -13,8 +14,8 @@ class ProgettoController extends Controller
      */
     public function index()
     {
-        return view('homepage', ['progetti' => Progetto::get()]);
-        //return Progetto::get();
+        $progetti = Progetto::where('user_id', Auth::id())->get();
+        return view('dashboard', ['progetti' => $progetti]);
     }
 
     /**
@@ -36,9 +37,11 @@ class ProgettoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Progetto $progetto)
+    public function show($id)
     {
-        //
+        $progetto = Progetto::find($id);
+        $progetti = Progetto::where('user_id', Auth::id())->get();
+        return view('dettaglio', ['progetti' => $progetti]);
     }
 
     /**

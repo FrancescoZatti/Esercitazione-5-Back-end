@@ -27,7 +27,7 @@
                     <td>{{ $value->attivitas_id }}</td>
                     <td>{{ $value->created_at }}</td>
                     <td>{{ $value->updated_at }}</td>
-                    <td class="d-flex flex-row">
+                    <td class="d-flex flex-column">
                         <a type="button" class="btn btn-outline-info" href="/progetto/{{$value->id}}">Info</a>
                         <a type="button" class="btn btn-primary" href="/progetto/{{$value->id}}">Modifica</a>
                         <a type="button" class="btn btn-outline-danger" href="/progetto/{{$value->id}}">Elimina</a>
