@@ -37,7 +37,7 @@ class AttivitaController extends Controller
      */
     public function show(Attivita $attivita)
     {
-        //
+        return view('attivita', ['attivita' => $attivita]);
     }
 
     /**

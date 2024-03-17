@@ -20,8 +20,8 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    $progetti = Progetto::all();
-    return view('dashboard', ['progetti' => $progetti]);
+    $progetto = Progetto::all();
+    return view('dashboard', ['progetto' => $progetto]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

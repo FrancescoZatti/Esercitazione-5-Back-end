@@ -20,20 +20,20 @@
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
-                        @if($progetti)
-                            @foreach($progetti as $key => $value)
+                        @if($progetto)
+                            @foreach($progetto as $key => $progetti)
                                 <tr>
-                                    <th scope="row">{{$value->id}}</th>
-                                    <td>{{ $value->titolo }}</td>
-                                    <td>{{ $value->descrizione }}</td>
-                                    <td class="text-center">{{ $value->users_id }}</td>
-                                    <td class="text-center">{{ $value->attivitas_id }}</td>
-                                    <td>{{ $value->created_at }}</td>
-                                    <td>{{ $value->updated_at }}</td>
+                                    <th scope="row">{{$progetti->id}}</th>
+                                    <td>{{ $progetti->titolo }}</td>
+                                    <td>{{ $progetti->descrizione }}</td>
+                                    <td class="text-center">{{ $progetti->users_id }}</td>
+                                    <td class="text-center">{{ $progetti->attivitas_id }}</td>
+                                    <td>{{ $progetti->created_at }}</td>
+                                    <td>{{ $progetti->updated_at }}</td>
                                     <td>
-                                        <a type="button" class="btn btn-outline-info w-100" href="/progetto/{{$value->id}}">Info</a>
-                                        <a type="button" class="btn btn-outline-warning my-2 w-100" href="/progetto/{{$value->id}}">Modifica</a>
-                                        <a type="button" class="btn btn-outline-danger w-100" href="/progetto/{{$value->id}}">Elimina</a>
+                                        <a type="button" class="btn btn-outline-info w-100" href="/progetto/{{$progetti->id}}">Info</a>
+                                        <a type="button" class="btn btn-outline-warning my-2 w-100" href="/progetto/{{$progetti->id}}">Modifica</a>
+                                        <a type="button" class="btn btn-outline-danger w-100" href="/progetto/{{$progetti->id}}">Elimina</a>
                                     </td>
                                 </tr>
                             @endforeach
