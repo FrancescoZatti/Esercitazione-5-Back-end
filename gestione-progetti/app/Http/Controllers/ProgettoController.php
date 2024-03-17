@@ -14,7 +14,7 @@ class ProgettoController extends Controller
      */
     public function index()
     {
-        $progetti = Progetto::where('user_id', Auth::id())->get();
+        $progetti = Progetto::where('users_id', Auth::id())->get();
         return view('dashboard', ['progetti' => $progetti]);
     }
 
@@ -23,7 +23,9 @@ class ProgettoController extends Controller
      */
     public function create()
     {
-        //
+        $latestProjectId = Progetto::max('id');
+        $newProjectId = $latestProjectId + 1;
+        return view('creare', ['newProjectId' => $newProjectId]);
     }
 
     /**
@@ -31,7 +33,17 @@ class ProgettoController extends Controller
      */
     public function store(StoreProgettoRequest $request)
     {
-        //
+        $validatedData = $request->validate([
+            'titolo' => 'required|string|max:255',
+            'descrizione' => 'required|string|max:255',
+        ]);
+
+        $progetto = new Progetto();
+        $progetto->titolo = $validatedData['titolo'];
+        $progetto->descrizione = $validatedData['descrizione'];
+        $progetto->users_id = Auth::id();
+        $progetto->save();
+        return redirect()->route('dashboard');
     }
 
     /**
@@ -63,6 +75,9 @@ class ProgettoController extends Controller
      */
     public function destroy(Progetto $progetto)
     {
-        //
+        $progetto->delete();
+    return redirect()->route('dashboard');
     }
+
+
 }

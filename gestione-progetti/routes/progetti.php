@@ -9,7 +9,7 @@ use App\Http\Controllers\AttivitaController1;
 Route::resource('/progetto', ProgettoController::class);
 Route::resource('/users', UserController::class);
 
-//Route::delete('/attivita/{attivita}', [AttivitaController::class, 'destroy'])->name('attivita.destroy');
+Route::delete('/attivita/{attivita}', [AttivitaController::class, 'destroy'])->name('attivita.destroy');
 Route::get('/attivita/{attivita}', [AttivitaController::class, 'show'])->name('attivita.show');
 //Route::get('/nuovaattivita/{id}',[AttivitaController::class, 'nuovaattivita'])->name('nuovaattivita');
 //Route::post('/salvaattivita',[AttivitaController::class, 'store'])->name('salvaattivita');

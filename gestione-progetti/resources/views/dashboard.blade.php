@@ -6,6 +6,7 @@
                 @extends('templates.layout')
                 @section('title', 'Tabella Progetti')
                 @section('content')
+                <a type="button" class="btn btn-primary my-2 w-100" href="{{ route('progetto.create') }}">Aggiungi progetto</a>
                 <table class="table align-middle mt-4">
                     <thead class="table-light align-middle text-center">
                         <tr>
@@ -33,7 +34,11 @@
                                     <td>
                                         <a type="button" class="btn btn-outline-info w-100" href="/progetto/{{$progetti->id}}">Info</a>
                                         <a type="button" class="btn btn-outline-warning my-2 w-100" href="/progetto/{{$progetti->id}}">Modifica</a>
-                                        <a type="button" class="btn btn-outline-danger w-100" href="/progetto/{{$progetti->id}}">Elimina</a>
+                                        <form action="{{ route('progetto.destroy', $progetti->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-outline-danger">Elimina Progetto</button>
+                                </form>
                                     </td>
                                 </tr>
                             @endforeach
