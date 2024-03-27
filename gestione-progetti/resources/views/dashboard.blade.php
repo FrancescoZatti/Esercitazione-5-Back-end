@@ -33,7 +33,6 @@
                                     <td>{{ $progetti->updated_at }}</td>
                                     <td>
                                         <a type="button" class="btn btn-outline-info w-100" href="/progetto/{{$progetti->id}}">Info</a>
-                                        <a type="button" class="btn btn-outline-warning my-2 w-100" href="/progetto/{{$progetti->id}}">Modifica</a>
                                         <form action="{{ route('progetto.destroy', $progetti->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
